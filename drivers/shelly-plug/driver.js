@@ -12,7 +12,9 @@ class ShellyPlugDriver extends Homey.Driver {
     let deviceArray = {};
 
     socket.on('list_devices', (data, callback) => {
+      this.log(discoveryResults);
       const devices = Object.values(discoveryResults).map(discoveryResult => {
+        this.log(discoveryResult);
         return {
           name: 'Shelly Plug ['+ discoveryResult.address +']',
           data: {
